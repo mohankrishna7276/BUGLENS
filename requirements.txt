@@ -1,0 +1,9 @@
+# BugLens AI - all free / open-source. Python 3.10+
+streamlit>=1.35.0
+groq>=0.9.0
+chromadb>=0.5.0
+sentence-transformers>=2.7.0
+pygments>=2.17.0
+pandas>=2.0.0
+reportlab>=4.0.0
+python-dotenv>=1.0.0

@@ -1,0 +1,23 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Generated files
+chroma_db/*
+!chroma_db/.gitkeep
+reports/*
+!reports/.gitkeep
+docs/ai_test_results.json
+
+# Model caches / OS / IDE
+.cache/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+tests/static_results.json

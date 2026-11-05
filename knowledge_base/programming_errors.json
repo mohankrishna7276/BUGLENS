@@ -1,0 +1,261 @@
+[
+  {
+    "id": "kb001",
+    "language": "Python",
+    "category": "Python Syntax Errors",
+    "title": "Missing colon after def/if/for/while/class",
+    "content": "Python requires a colon at the end of compound statement headers: def, class, if, elif, else, for, while, try, except, with. Forgetting it raises 'SyntaxError: expected ':''. Fix: add ':' at the end of the header line, then indent the body. Example: write 'def add(a, b):' not 'def add(a, b)'."
+  },
+  {
+    "id": "kb002",
+    "language": "Python",
+    "category": "Python Syntax Errors",
+    "title": "IndentationError: expected an indented block / unexpected indent",
+    "content": "Python uses indentation to define blocks. 'IndentationError: expected an indented block' means a header line (def, if, for...) has no indented body. 'unexpected indent' means a line is indented more than the block allows. Use 4 spaces consistently and never mix tabs and spaces (TabError). Configure the editor to insert spaces when Tab is pressed."
+  },
+  {
+    "id": "kb003",
+    "language": "Python",
+    "category": "Python Syntax Errors",
+    "title": "Unmatched parentheses, brackets or quotes",
+    "content": "'SyntaxError: '(' was never closed' or 'unterminated string literal' means brackets or quotes are not paired. Count opening and closing ( [ { and make sure every string starts and ends with the same quote type. The reported line is often the line AFTER the real mistake, so also inspect the line above."
+  },
+  {
+    "id": "kb004",
+    "language": "Python",
+    "category": "Python Syntax Errors",
+    "title": "Assignment (=) used instead of comparison (==) in a condition",
+    "content": "In Python, 'if x = 5:' is a SyntaxError because '=' assigns while '==' compares. Use 'if x == 5:'. Python 3.8+ offers ':=' (walrus operator) only for intentional assignment expressions."
+  },
+  {
+    "id": "kb005",
+    "language": "Python",
+    "category": "Python Runtime Errors",
+    "title": "NameError: name is not defined",
+    "content": "NameError occurs when a variable or function is used before it is defined, when it is misspelled, or when it was defined in a different scope (for example inside a function). Fix: define the variable before use, check spelling and capitalization (Python is case-sensitive), import the needed module, or return the value from the function."
+  },
+  {
+    "id": "kb006",
+    "language": "Python",
+    "category": "Python Runtime Errors",
+    "title": "TypeError: can only concatenate str (not 'int') to str",
+    "content": "The + operator cannot join a string and a number. Convert explicitly: 'Age: ' + str(age), or use an f-string: f'Age: {age}'. Values read with input() are always strings, so convert with int() or float() before doing arithmetic."
+  },
+  {
+    "id": "kb007",
+    "language": "Python",
+    "category": "Python Runtime Errors",
+    "title": "IndexError: list index out of range",
+    "content": "A list of length n has valid indexes 0 to n-1 (and -1 to -n). Accessing nums[len(nums)] or nums[5] on a 3-item list raises IndexError. Fix: check len() first, loop with 'for item in nums' or range(len(nums)), and remember indexing starts at 0."
+  },
+  {
+    "id": "kb008",
+    "language": "Python",
+    "category": "Python Runtime Errors",
+    "title": "KeyError and dictionary access",
+    "content": "KeyError is raised when a key is missing from a dictionary. Use d.get(key, default), check 'if key in d', or catch KeyError. Keys are case-sensitive and types matter: 1 and '1' are different keys."
+  },
+  {
+    "id": "kb009",
+    "language": "Python",
+    "category": "Python Runtime Errors",
+    "title": "ValueError from int()/float() conversion",
+    "content": "int('abc') or int('3.5') raises ValueError because the text is not a valid integer. Validate user input, wrap the conversion in try/except ValueError, or use float() first for decimal text. Strip whitespace with .strip()."
+  },
+  {
+    "id": "kb010",
+    "language": "Python",
+    "category": "Python Runtime Errors",
+    "title": "ZeroDivisionError",
+    "content": "Dividing or taking modulo by zero raises ZeroDivisionError. Check that the divisor is not zero before dividing, e.g. 'if b != 0:', or handle the error with try/except ZeroDivisionError."
+  },
+  {
+    "id": "kb011",
+    "language": "Python",
+    "category": "Python Runtime Errors",
+    "title": "Mutable default arguments and bare except",
+    "content": "A default like def f(items=[]) is created once and shared across calls, causing surprising state. Use items=None and create a new list inside the function. A bare 'except:' hides real errors (even KeyboardInterrupt); catch specific exceptions such as 'except ValueError:'."
+  },
+  {
+    "id": "kb012",
+    "language": "General",
+    "category": "Loops and Conditionals",
+    "title": "Infinite loop: loop variable never updated",
+    "content": "A while loop runs forever if its condition never becomes false. Typical cause: forgetting to update the loop variable (i += 1 in Python, i++ in C/Java/JS) or updating it in the wrong direction. Fix: make sure every iteration moves the variable toward the stopping condition, and ensure 'while True' has a reachable break or return."
+  },
+  {
+    "id": "kb013",
+    "language": "General",
+    "category": "Loops and Conditionals",
+    "title": "Off-by-one errors in loop bounds",
+    "content": "Using <= instead of < (or range(n+1) instead of range(n)) makes the loop run one time too many and often causes an out-of-range array access. For an array of size n, valid indexes are 0..n-1, so the loop condition should be i < n. Check the first and last iteration by hand."
+  },
+  {
+    "id": "kb014",
+    "language": "General",
+    "category": "Loops and Conditionals",
+    "title": "Incorrect conditions: = vs ==, wrong boolean operator",
+    "content": "Common condition mistakes: using assignment instead of comparison (C/Java/JS: if (x = 5) assigns 5 and is always true), mixing && / || (and/or), writing a chained check wrongly (x > 1 and < 10 must be x > 1 and x < 10), and forgetting braces so only the first statement belongs to the if. Re-read the condition with real values to test it."
+  },
+  {
+    "id": "kb015",
+    "language": "General",
+    "category": "Loops and Conditionals",
+    "title": "Condition ordering in if/elif/else chains",
+    "content": "In an if/else-if chain, the first true branch wins. Put the most specific condition first (e.g. check score >= 90 before score >= 80). Otherwise broader conditions capture values and later branches are never executed."
+  },
+  {
+    "id": "kb016",
+    "language": "General",
+    "category": "Functions and Recursion",
+    "title": "Function argument count mismatch",
+    "content": "Calling a function with too few or too many arguments is an error: Python raises 'TypeError: area() missing 1 required positional argument' and C/Java report compile errors. Match the call to the definition: same number, order and types of arguments, or give parameters default values."
+  },
+  {
+    "id": "kb017",
+    "language": "General",
+    "category": "Functions and Recursion",
+    "title": "Recursion without a base case or with a non-shrinking input",
+    "content": "Every recursive function needs a base case that stops recursion and a recursive step that moves toward it. Missing base case leads to RecursionError (Python) or StackOverflowError (Java) or a segmentation fault (C). Example: factorial(n) must return 1 when n <= 1 and call factorial(n-1), not factorial(n)."
+  },
+  {
+    "id": "kb018",
+    "language": "General",
+    "category": "Functions and Recursion",
+    "title": "Missing return value / return in the wrong place",
+    "content": "A function without a return statement returns None in Python (undefined in JS). A return placed inside a loop's first iteration ends the function too early. In C/Java a non-void function must return a value on every path. Print is not the same as return."
+  },
+  {
+    "id": "kb019",
+    "language": "General",
+    "category": "Functions and Recursion",
+    "title": "Variable scope mistakes",
+    "content": "Variables created inside a function are local to it. Using them outside raises NameError (Python) or is undeclared (C/Java). Return values or pass parameters rather than relying on globals. In Python assigning to a global inside a function needs the 'global' keyword."
+  },
+  {
+    "id": "kb020",
+    "language": "General",
+    "category": "Arrays and Strings",
+    "title": "Array index out of bounds",
+    "content": "Arrays are zero-indexed. Accessing index n of an array with n elements is out of bounds: Java throws ArrayIndexOutOfBoundsException, Python raises IndexError, JavaScript returns undefined, and C has undefined behaviour (it may silently corrupt memory). Always keep indexes in 0..length-1."
+  },
+  {
+    "id": "kb021",
+    "language": "General",
+    "category": "Arrays and Strings",
+    "title": "String immutability and comparison",
+    "content": "Strings are immutable in Python, Java and JavaScript: s[0] = 'x' fails in Python, and methods like replace() return a NEW string that must be assigned. Compare string content with == in Python/JS, with .equals() in Java, and strcmp() in C."
+  },
+  {
+    "id": "kb022",
+    "language": "General",
+    "category": "Arrays and Strings",
+    "title": "Off-by-one when slicing or taking substrings",
+    "content": "Python slices s[a:b] exclude index b. Java substring(a, b) also excludes b. A full copy of an n-length string is s[0:n], not s[0:n-1]. Check both ends with a short example."
+  },
+  {
+    "id": "kb023",
+    "language": "General",
+    "category": "Data Types and Conversion",
+    "title": "Integer division and type conversion surprises",
+    "content": "In C and Java, 5/2 is 2 because both operands are integers; cast one to double (5/2.0) to get 2.5. Python 3 '/' gives a float and '//' gives integer division. Convert input text to numbers explicitly: int(), float(), Integer.parseInt(), atoi()."
+  },
+  {
+    "id": "kb024",
+    "language": "General",
+    "category": "Data Types and Conversion",
+    "title": "Mixing incompatible types",
+    "content": "Assigning a string to an int variable (Java: int x = \"5\";) or adding string and number in Python are type errors. Statically typed languages catch these at compile time; Python and JavaScript catch them at runtime or silently coerce. Convert explicitly and keep variable types consistent."
+  },
+  {
+    "id": "kb025",
+    "language": "Java",
+    "category": "Java Common Errors",
+    "title": "Missing semicolon and unbalanced braces",
+    "content": "Every Java statement ends with ';'. Compiler messages like \"';' expected\" point at or just after the line with the problem. 'reached end of file while parsing' means a closing brace '}' is missing. Match every { with a }, and use an IDE that highlights matching braces."
+  },
+  {
+    "id": "kb026",
+    "language": "Java",
+    "category": "Java Common Errors",
+    "title": "Comparing Strings with == instead of .equals()",
+    "content": "In Java == compares object references, not text. Two equal strings may compare false. Use s1.equals(s2) or s1.equalsIgnoreCase(s2). Put the literal first ('yes'.equals(input)) to avoid NullPointerException."
+  },
+  {
+    "id": "kb027",
+    "language": "Java",
+    "category": "Java Common Errors",
+    "title": "NullPointerException and uninitialised objects",
+    "content": "NullPointerException occurs when calling a method or accessing a field on a reference that is null. Initialise objects with new, check for null before use, and remember arrays of objects start filled with null. Read the stack trace: the first line in your own code shows where."
+  },
+  {
+    "id": "kb028",
+    "language": "Java",
+    "category": "Java Common Errors",
+    "title": "Common compile errors: 'cannot find symbol' and incompatible types",
+    "content": "'cannot find symbol' means a variable, method or class name is misspelled, undeclared or not imported. Java is case-sensitive: System.out.println (capital S) not system.out.println. 'incompatible types' appears when assigning e.g. a double to an int without a cast or a String to an int."
+  },
+  {
+    "id": "kb029",
+    "language": "C",
+    "category": "C Programming Errors",
+    "title": "scanf missing & address-of operator",
+    "content": "scanf needs the ADDRESS of the variable to store input: scanf(\"%d\", &n); not scanf(\"%d\", n);. Without & the program writes to a garbage address and usually crashes. Character arrays (strings) are the exception: scanf(\"%s\", name) needs no &."
+  },
+  {
+    "id": "kb030",
+    "language": "C",
+    "category": "C Programming Errors",
+    "title": "Array out of bounds and buffer overflow",
+    "content": "C does not check array bounds. Writing arr[5] in int arr[5] corrupts neighbouring memory and may crash later. Loop with i < size, not i <= size. Avoid gets() (removed in C11); use fgets(buf, sizeof buf, stdin) so input cannot overflow the buffer."
+  },
+  {
+    "id": "kb031",
+    "language": "C",
+    "category": "C Programming Errors",
+    "title": "Missing #include and implicit declaration warnings",
+    "content": "printf/scanf need #include <stdio.h>; strlen/strcpy need <string.h>; malloc/free need <stdlib.h>. Forgetting the header gives 'implicit declaration of function' warnings and can cause wrong behaviour."
+  },
+  {
+    "id": "kb032",
+    "language": "C",
+    "category": "C Programming Errors",
+    "title": "Uninitialised variables and wrong printf format specifiers",
+    "content": "Local variables in C are not initialised; reading them gives garbage. Initialise at declaration (int sum = 0;). The printf format must match the type: %d int, %f float/double (%lf for scanf double), %c char, %s string, %ld long. A mismatch prints wrong values."
+  },
+  {
+    "id": "kb033",
+    "language": "C",
+    "category": "C Programming Errors",
+    "title": "Pointers: dangling, NULL dereference and memory leaks",
+    "content": "Dereferencing NULL or a freed pointer crashes (segmentation fault). Check malloc's return value, set pointers to NULL after free(), and free() every malloc(). Use sizeof on the right type when allocating arrays."
+  },
+  {
+    "id": "kb034",
+    "language": "JavaScript",
+    "category": "JavaScript Common Errors",
+    "title": "== vs === and type coercion",
+    "content": "== converts types before comparing (0 == '0' is true, '' == 0 is true) which causes surprising bugs. Use === and !== for strict comparison. Remember typeof null is 'object' and NaN !== NaN (use Number.isNaN)."
+  },
+  {
+    "id": "kb035",
+    "language": "JavaScript",
+    "category": "JavaScript Common Errors",
+    "title": "TypeError: Assignment to constant variable (const)",
+    "content": "Variables declared with const cannot be reassigned: const x = 1; x = 2; throws TypeError. Use let for values that change. Note const objects/arrays can still be mutated (push, property change) but not rebound."
+  },
+  {
+    "id": "kb036",
+    "language": "JavaScript",
+    "category": "JavaScript Common Errors",
+    "title": "undefined, ReferenceError and var hoisting",
+    "content": "ReferenceError: x is not defined means the name does not exist in scope. Accessing a missing property or an array index out of range gives undefined, and calling a method on undefined throws TypeError. var is function-scoped and hoisted; prefer let/const which are block-scoped."
+  },
+  {
+    "id": "kb037",
+    "language": "JavaScript",
+    "category": "JavaScript Common Errors",
+    "title": "Assignment in conditions and async mistakes",
+    "content": "if (x = 5) assigns 5 to x and is always truthy; use ===. For asynchronous code, forgetting await on a Promise returns the Promise object, not its value; and callbacks inside loops using var all see the final loop value, so use let."
+  }
+]
